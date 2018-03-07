@@ -14,7 +14,7 @@ class Page
 	];
 
 	//Metodo construtor
-	public function __construct($opts = array()) 
+	public function __construct($opts = array(), $tpl_dir = "/views/") 
 	{
 
 		//Mescla dois arrays, o ultimo sobrescreve os anteriores
@@ -23,7 +23,7 @@ class Page
 		//Configuração do RainTPL
 		$config = array(
 			//$_SERVER["DOCUMENT_ROOT"] traz o diretorio root do servidor
-	        "tpl_dir"       => $_SERVER["DOCUMENT_ROOT"]. "/views/", 
+	        "tpl_dir"       => $_SERVER["DOCUMENT_ROOT"]. $tpl_dir, 
 	        "cache_dir"     => $_SERVER["DOCUMENT_ROOT"]. "/views-cache/",
 	        //"debug"         => true //Set to falso to improve the speed
 	    );
