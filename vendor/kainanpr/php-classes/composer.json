@@ -1,9 +1,9 @@
 {
-    "name": "Kainanpr/php-conexaodb",
+    "name": "Kainanpr/php-classes",
     "minimum-stability": "dev",
     "type": "library",
-    "description": "Conexão com MYSQL PHP",
-    "homepage": "https://github.com/Kainanpr/php-conexaodb",
+    "description": "Classes PHP",
+    "homepage": "https://github.com/Kainanpr/php-classes",
     "authors": [
         {
             "name": "Kainan",
@@ -12,6 +12,7 @@
     ],
     "require": {
         "php": ">=7.0",
+        "rain/raintpl":"3.0.0"
     },
     "autoload": {
         "psr-4": {

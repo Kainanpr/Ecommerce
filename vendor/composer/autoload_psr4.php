@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    '' => array($vendorDir . '/conexaodb/conexaodb/library'),
+    'Kainanpr\\' => array($vendorDir . '/kainanpr/php-classes/library'),
 );

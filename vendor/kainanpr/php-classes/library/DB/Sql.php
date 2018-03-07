@@ -1,6 +1,6 @@
 <?php 
 
-namespace DB;
+namespace Kainanpr\DB;
 
 class Sql {
 

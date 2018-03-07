@@ -2,15 +2,19 @@
 
 require_once("vendor/autoload.php");
 
-$app = new \Slim\Slim();
+use \Slim\Slim;
+use \Kainanpr\DB\Sql;
+use \Kainanpr\Page;
+
+$app = new Slim();
 
 $app->config('debug', true);
 
 $app->get('/', function() {
     
-	$sql = new DB\Sql();
+	$page = new Page();
 
-	echo "OK";
+	$page->setTpl("index");
 
 });
 

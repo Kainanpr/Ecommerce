@@ -6,8 +6,18 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit24077c404329e1d5116c8358c38d6b62
 {
-    public static $fallbackDirsPsr4 = array (
-        0 => __DIR__ . '/..' . '/conexaodb/conexaodb/library',
+    public static $prefixLengthsPsr4 = array (
+        'K' => 
+        array (
+            'Kainanpr\\' => 9,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Kainanpr\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kainanpr/php-classes/library',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -41,7 +51,8 @@ class ComposerStaticInit24077c404329e1d5116c8358c38d6b62
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->fallbackDirsPsr4 = ComposerStaticInit24077c404329e1d5116c8358c38d6b62::$fallbackDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit24077c404329e1d5116c8358c38d6b62::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit24077c404329e1d5116c8358c38d6b62::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit24077c404329e1d5116c8358c38d6b62::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit24077c404329e1d5116c8358c38d6b62::$classMap;
 
