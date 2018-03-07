@@ -76,6 +76,19 @@ class User extends Model
 		unset($_SESSION[User::SESSION]);
 	}
 
+	public static function listAll()
+	{
+		$sql = new Sql();
+
+		$sql->connect();
+
+		$results = $sql->select("SELECT * FROM tb_users AS u INNER JOIN tb_persons AS p ON u.idperson = p.idperson ORDER BY p.desperson");
+
+		$sql->disconnect();
+
+		return $results;
+	}
+
 }//Fim da classe
 
 ?>
