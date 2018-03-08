@@ -76,6 +76,8 @@ class Mailer {
 		$this->mail->AltBody = 'This is a plain-text message body';
 		//Attach an image file
 		//$this->mail->addAttachment('images/phpmailer_mini.png');
+
+		$this->mail->CharSet = 'UTF-8';
 	}
 	
 	public function send()
