@@ -116,6 +116,43 @@ class Category extends Model
 		return $results;
 	}
 
+	public function getProductsPage($page = 1, $itemsPerPage = 3)
+	{
+		$start = ($page-1) * $itemsPerPage;
+
+		$sql = new Sql();
+
+		$sql->connect();
+
+
+		/*SELECT * FROM tb_products AS p 
+		INNER JOIN tb_productscategories AS pc ON p.idproduct = pc.idproduct
+		INNER JOIN tb_categories AS c ON c.idcategory = pc.idcategory
+		WHERE pc.idcategory = 2
+		LIMIT 0, 3;*/
+		$results = $sql->select("SELECT SQL_CALC_FOUND_ROWS * FROM tb_products AS p 
+					INNER JOIN tb_productscategories AS pc ON p.idproduct = pc.idproduct
+					INNER JOIN tb_categories AS c ON c.idcategory = pc.idcategory
+					WHERE pc.idcategory = :idcategory
+					LIMIT $start, $itemsPerPage;", [
+			':idcategory'=>$this->getidcategory()
+		]);
+
+		/*SELECT COUNT(*) FROM tb_products AS p 
+		INNER JOIN tb_productscategories AS pc ON p.idproduct = pc.idproduct
+		INNER JOIN tb_categories AS c ON c.idcategory = pc.idcategory
+		WHERE pc.idcategory = 2;*/
+		$resultTotalItems = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+
+		$sql->disconnect();
+
+		return [
+			'data'=>Product::checkList($results),
+			'total'=>(int)$resultTotalItems[0]['nrtotal'],
+			'pages'=>ceil($resultTotalItems[0]['nrtotal'] / $itemsPerPage)//Converte arredondando para cima
+		];
+	}
+
 	public function addProduct(Product $product)
 	{
 		$sql = new Sql();
